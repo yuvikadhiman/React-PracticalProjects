@@ -1,20 +1,40 @@
-import React, { useState } from 'react'
-import data from './data'
-import List from './List';
+import React, { useState } from "react";
+import data from "./data";
+import List from "./List";
 const App = () => {
+  const [user, setuser] = useState(data);
+  // console.log(user);
 
-  const [user,setuser]=useState(data);
-  console.log(user)
- 
   return (
-   <main>
-    <section className='container'>
-      <h3>{user.length} Birthday Today</h3>
-      <List user={user}/>
-      <button onClick={(setuser([]))}>Clear all</button>
-    </section>
-   </main>
-  )
-}
+    <>
+    <div className="header">
+      <h1>birthday reminder</h1>
+    </div>
+    <main>
+      <section className="container">
+        <h3>{user.length} Birthday Today</h3>
+        <List user={user}/>
+        <button
+          type='button'
+          className='btn btn-block'
+          onClick={() => setuser([])}
+        >
+          clear all
+        </button>
 
-export default App
+      </section >
+      {/* <section className="container">
+        <h3>{user.length} Birthday Today</h3>
+        <List user={user} />
+        <button type="button" 
+        className="btn btn-block" 
+        onClick={setuser([])}>
+          Clear all
+        </button>
+      </section> */}
+    </main>
+    </>
+  );
+};
+
+export default App;
