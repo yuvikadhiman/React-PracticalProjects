@@ -1,6 +1,6 @@
 import React from 'react'
 import Tour from './Tour'
-const Tours = ({tours,remove}) => {
+const Tours = ({tours,removeItem}) => {
   return (
    <section>
      <div className='title'>
@@ -11,7 +11,7 @@ const Tours = ({tours,remove}) => {
         {tours.map((items)=>{
             // eslint-disable-next-line array-callback-return
             return(
-            <Tour key={items.id} {...items} remove={remove}/>)
+            <Tour key={items.id} {...items} removeItem={removeItem}/>)
         })}
         
       </div>
