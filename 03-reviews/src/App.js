@@ -1,4 +1,5 @@
 import reviews from "./data";
+// npm install react-icons --save
 import {
   FaChevronCircleLeft,
   FaChevronCircleRight,
