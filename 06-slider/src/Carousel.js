@@ -1,4 +1,5 @@
 import React from 'react'
+// eslint-disable-next-line no-unused-vars
 import {shortList, list,longList} from './data'
 import {useState,useEffect} from 'react'
 import {FaQuoteRight} from "react-icons/fa"
@@ -6,6 +7,7 @@ import {FiChevronsLeft,FiChevronsRight} from "react-icons/fi"
 
 
 const Carousel = () => {
+    // eslint-disable-next-line no-unused-vars
     const[people,setPeople]=useState(longList);
     const [currentPerson, setCurrentPerson] = useState(0);
 
@@ -28,6 +30,7 @@ const Carousel = () => {
         return()=>{
             clearInterval(sliderId)
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[currentPerson])
     
 
