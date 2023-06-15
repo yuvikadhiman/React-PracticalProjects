@@ -17,6 +17,7 @@ const allCategories=['all',...new Set(tempCategory)]
 const App = ()=> {
 
   const [menu,setMenu]=useState(items)
+  // eslint-disable-next-line no-unused-vars
   const [category,setcategory]=useState(allCategories)
   // console.log(category)
 
