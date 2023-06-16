@@ -19,7 +19,15 @@ const setLocalStorage=(items)=>{
 // const defaultList = JSON.parse(localStorage.getItem('list') || '[]');
 const App = () => {
   // const [items, setItems] = useState(defaultList);
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState([{
+    name:'Myntra',
+    completed: false,
+    id: Math.floor(Math.random() * 100),
+  },{
+    name:'Amazon',
+    completed: false,
+    id: Math.floor(Math.random() * 100),
+  }]);
 
   const addItems = (itemName) => {  
     const newItem = {
