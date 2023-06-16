@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Form from "./Form";
+import Items from "./Items";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// const getLocalStorage=()=>{
+//   let list =localStorage.getItem('list')
+//   if(list){
+//     list=JSON.parse(localStorage.getItem('list'))
+//   }
+//   else{
+//     list=[];
+
+//   }
+//   return list;
+// }
+const setLocalStorage=(items)=>{
+  localStorage.setItem('list',JSON.stringify(items))
 }
+// const defaultList = JSON.parse(localStorage.getItem('list') || '[]');
+const App = () => {
+  // const [items, setItems] = useState(defaultList);
+  const [items, setItems] = useState([]);
+
+  const addItems = (itemName) => {  
+    const newItem = {
+      name: itemName,
+      completed: false,
+      id: Math.floor(Math.random() * 100),
+    };
+    const newItems = [...items, newItem];
+    setItems(newItems);
+    setLocalStorage(newItem)
+  };
+
+  const removeId = (itemid) => {
+    const newItems = items.filter((item) => item.id !== itemid);
+    setItems(newItems);
+    setLocalStorage(newItems)
+  };
+
+  return (
+    <section className="section-center">
+      <Form addItems={addItems} />
+      <Items items={items} removeId={removeId}/>
+    </section>
+  );
+};
 
 export default App;
