@@ -26,6 +26,11 @@ const navbar = () => {
   //       </div>
   //     );
   //   };
+
+  const toggleLinks = () => {
+    setShowLink(!showLink);
+  };
+
   const linkStyles = {
     height: showLink
       ? `${linksref.current.getBoundingClientRect().height}px`
@@ -33,25 +38,22 @@ const navbar = () => {
   };
   return (
     <nav>
-      <div className="nav-center">
-        <div className="nav-header">
-          <img src={logo} classNamealt="logo" alt="logo" />
-          <button
-            className="nav-toggle"
-            onClick={() => {
-              console.log(linksref.current);
-              setShowLink(!showLink);
-            }}
-          >
+      <div className='nav-center'>
+        <div className='nav-header'>
+          <img src={logo} className='logo' alt='logo' />
+          <button className='nav-toggle' onClick={toggleLinks}>
             <FaBars />
           </button>
         </div>
 
-        {/* {showLink && <Navlink/>} */}
-        <div className="links-container" ref={linksContainerRef} style={linkStyles}>
-          <ul className="links" ref={linksref}>
+        <div
+          className='links-container'
+          ref={linksContainerRef}
+          style={linkStyles}
+        >
+          <ul className='links' ref={linksref}>
             {links.map((link) => {
-              const { url, id, text } = link;
+              const { id, url, text } = link;
               return (
                 <li key={id}>
                   <a href={url}>{text}</a>
@@ -60,6 +62,7 @@ const navbar = () => {
             })}
           </ul>
         </div>
+        {/* social links */}
         <ul className='social-icons'>
           {social.map((socialIcon) => {
             const { id, url, icon } = socialIcon;
