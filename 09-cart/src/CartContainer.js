@@ -1,7 +1,11 @@
 import CartItem from './CartItem';
+import { useGlobalContext } from './context';
 import cartItems from './data';
+
 const CartContainer = () => {
-  const cartArray = [...cartItems];
+  const {cart,ClearCart,totalCost}=useGlobalContext()
+  const cartArray = Array.from(cart.entries())
+  // console.log(cartArray)
 
   if (cartArray.length === 0) {
     return (
@@ -22,8 +26,10 @@ const CartContainer = () => {
       </header>
       {/* cart items */}
       <div>
-        {cartArray.map((cartItem) => {
-          return <CartItem key={cartItem.id} {...cartItem} />;
+        {cartArray.map((cartItems) => {
+          const [id,item]=cartItems
+          // console.log(cartItems)
+          return <CartItem key={id} {...item} />;
         })}
       </div>
       {/* cart footer */}
@@ -31,12 +37,12 @@ const CartContainer = () => {
         <hr />
         <div>
           <h5 className='cart-total'>
-            total <span>$10</span>
+            total <span> $ {totalCost.toFixed(2)}</span>
           </h5>
         </div>
         <button
           className='btn btn-hipster'
-          onClick={() => console.log('clear cart')}
+          onClick={ClearCart}
         >
           clear cart
         </button>
