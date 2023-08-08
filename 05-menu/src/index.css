@@ -145,6 +145,10 @@ ul {
   transition: var(--transition);
   text-transform: capitalize;
   display: inline-block;
+  -webkit-border-radius: var(--borderRadius);
+  -moz-border-radius: var(--borderRadius);
+  -ms-border-radius: var(--borderRadius);
+  -o-border-radius: var(--borderRadius);
 }
 .btn:hover {
   background: var(--primary-700);
@@ -302,6 +306,10 @@ ul {
   padding: 0.25rem 0.5rem;
   letter-spacing: var(--letterSpacing);
   border-radius: var(--borderRadius);
+  -webkit-border-radius: var(--borderRadius);
+  -moz-border-radius: var(--borderRadius);
+  -ms-border-radius: var(--borderRadius);
+  -o-border-radius: var(--borderRadius);
 }
 
 .item-text {

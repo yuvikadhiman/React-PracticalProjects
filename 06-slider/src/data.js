@@ -1,13 +1,3 @@
-export const shortList = [
-  {
-    id: 1,
-    image: 'https://www.course-api.com/images/people/person-1.jpeg',
-    name: 'maria ferguson',
-    title: 'office manager',
-    quote:
-      'Fingerstache umami squid, kinfolk subway tile selvage tumblr man braid viral kombucha gentrify fanny pack raclette pok pok mustache.',
-  },
-];
 
 export const list = [
   {
